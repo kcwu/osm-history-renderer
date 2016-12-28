@@ -23,7 +23,7 @@ protected:
 public:
     geos::geom::Geometry* forWay(const Osmium::OSM::WayNodeList &nodes, time_t t, bool looksLikePolygon) {
         // shorthand to the geometry factory
-        geos::geom::GeometryFactory *f = Osmium::Geometry::geos_geometry_factory();
+        geos::geom::GeometryFactory::unique_ptr f = Osmium::Geometry::geos_geometry_factory();
 
         // pointer to coordinate vector
         std::vector<geos::geom::Coordinate> *c = new std::vector<geos::geom::Coordinate>();
